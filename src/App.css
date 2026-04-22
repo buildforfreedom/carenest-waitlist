@@ -1,0 +1,505 @@
+/* App.css - YC Minimalist Style + App Feed Feed */
+
+/* ------------------------------------------------------------------
+   GLOBAL RESET & TYPOGRAPHY
+   ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------
+   UTILITY CLASSES
+   ------------------------------------------------------------------ */
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+.text-green { color: #059669 !important; }
+.text-muted { color: var(--text-medium); }
+.text-light { color: var(--text-light); }
+.text-small { font-size: 0.85rem; }
+
+/* ------------------------------------------------------------------
+   TOP BANNER & NAVIGATION
+   ------------------------------------------------------------------ */
+.top-banner {
+  background-color: var(--yc-orange);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.navbar {
+  border-bottom: 1px solid var(--gray-border);
+  padding: 20px 0;
+  background: var(--white);
+}
+
+.nav-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo strong {
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  color: var(--black);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-medium);
+}
+
+.nav-links a:hover {
+  color: var(--yc-orange);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------
+   HERO SECTION
+   ------------------------------------------------------------------ */
+.hero {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-medium);
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-hint {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.pricing-hint strong {
+  color: var(--text-dark);
+}
+
+/* Buttons */
+.primary-btn {
+  background-color: var(--yc-orange);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+  max-width: max-content;
+}
+
+.primary-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.primary-btn:disabled {
+  background-color: var(--gray-border);
+  color: var(--text-medium);
+  cursor: not-allowed;
+}
+
+.primary-btn.full-width {
+  max-width: 100%;
+  width: 100%;
+}
+
+.outline-btn-small {
+  background: transparent;
+  border: 1px solid var(--black);
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.outline-btn-small:hover { background: var(--light-gray); }
+
+/* ------------------------------------------------------------------
+   APP EXPERIENCE FEED (Right Column Cards)
+   ------------------------------------------------------------------ */
+.hero-visual-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-card {
+  border: 1px solid var(--black);
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1); /* Brutalist strict shadow */
+  border-radius: 4px;
+  position: relative;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Portfolio Specifics */
+.feed-card-header {
+  border-bottom: 1px solid var(--gray-border);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.portfolio-score-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.score-large {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1;
+}
+
+/* Stock Ticker Specifics */
+.stock-list {
+  margin-top: 20px;
+}
+
+.stock-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.stock-name strong {
+  display: block;
+  color: var(--black);
+  font-size: 0.9rem;
+}
+
+.stock-name span {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin-left: 6px;
+}
+
+.stock-price div {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Labels and Badges */
+.info-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-orange { background: var(--yc-orange); color: white; }
+.badge-black { background: var(--black); color: white; }
+
+.border-left-quote {
+  border-left: 3px solid var(--gray-border);
+  padding-left: 12px;
+  margin: 12px 0;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.border-bottom-light { 
+  border-bottom: 1px solid var(--gray-border); 
+  padding-bottom: 10px; 
+  margin-bottom: 10px; 
+}
+
+/* ------------------------------------------------------------------
+   PAGE SECTIONS
+   ------------------------------------------------------------------ */
+
+/* Locations Bar */
+.locations-bar {
+  background-color: var(--light-gray);
+  border-top: 1px solid var(--gray-border);
+  border-bottom: 1px solid var(--gray-border);
+  padding: 20px 0;
+  font-size: 0.95rem;
+  color: var(--text-medium);
+}
+
+.locations-bar strong {
+  color: var(--black);
+}
+
+/* USPs Section */
+.content-section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.flat-card {
+  padding-top: 24px;
+}
+
+.border-top-thick {
+  border-top: 4px solid var(--black);
+}
+
+.flat-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+.flat-card p {
+  color: var(--text-medium);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Bottom CTA section */
+.bg-light {
+  background-color: var(--light-gray);
+  border-top: 1px solid var(--gray-border);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.bg-light h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.bg-light p {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--gray-border);
+  padding: 40px 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* ------------------------------------------------------------------
+   MODAL & FORMS (Waitlist Capture)
+   ------------------------------------------------------------------ */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modal-container {
+  background: var(--white);
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-border);
+  padding: 20px 24px;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text-medium);
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body p {
+  font-size: 0.95rem;
+  color: var(--text-medium);
+  margin-bottom: 24px;
+}
+
+.flat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  border: 1px solid var(--text-medium);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border-radius: 2px;
+  outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--yc-orange);
+}
+
+.success-state {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.success-state h2 {
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  background: var(--light-gray);
+  border: 1px solid var(--gray-border);
+  padding: 8px 16px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Form Error Banner */
+.error-banner {
+  background: #FEE2E2; 
+  color: #B91C1C; 
+  padding: 10px; 
+  font-size: 0.9rem; 
+  margin-bottom: 16px; 
+  border: 1px solid #DC2626;
+}
+
+
+/* ------------------------------------------------------------------
+   RESPONSIVE QUERIES
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: left;
+    margin: 40px auto;
+  }
+  
+  .hero-subtitle {
+    margin-right: auto;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
