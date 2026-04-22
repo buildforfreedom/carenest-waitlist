@@ -7,7 +7,8 @@
     "dev": "concurrently \"node backend/server.js\" \"vite\"",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node backend/server.js"
   },
   "dependencies": {
     "concurrently": "^9.2.1",

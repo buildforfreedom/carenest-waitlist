@@ -121,8 +121,17 @@ app.post('/api/waitlist/submit', submitLimiter, (req, res) => {
   }
 });
 
+// Serve the React frontend locally
+const distPath = path.join(__dirname, '../dist');
+app.use(express.static(distPath));
+
+// Catch-all route to serve the React index for all other requests (client-side routing support if needed)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
 // Start the server
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`CareNest Backend running effectively on port ${PORT}`);
 });
